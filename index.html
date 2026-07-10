@@ -3,9 +3,21 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <meta name="description" content="Shah Pesticides — Trusted partner for Apple Orchards in Kashmir. Scientific spray schedules, live weather, SKUAST-K recommended solutions. Tral, Pulwama."/>
+  <meta name="description" content="Shah Pesticides — Kashmir's trusted apple orchard pesticide supplier in Tral, Pulwama. Live weather, SKUAST-K spray schedules, disease diagnosis & paid expert consultations."/>
   <meta name="keywords" content="apple pesticides Kashmir, SKUAST-K spray schedule, apple scab treatment, Shah Pesticides Tral Pulwama, apple disease management Kashmir"/>
   <meta name="theme-color" content="#166534"/>
+
+  <!-- Open Graph / social share previews (WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="business.business"/>
+  <meta property="og:title" content="Shah Pesticides — Kashmir Apple Orchard Experts"/>
+  <meta property="og:description" content="Live weather, SKUAST-K spray schedules & paid expert orchard consultations. Serving Tral, Pulwama and across Kashmir Valley."/>
+  <meta property="og:locale" content="en_IN"/>
+
+  <!-- Twitter/X card -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Shah Pesticides — Kashmir Apple Orchard Experts"/>
+  <meta name="twitter:description" content="Live weather, SKUAST-K spray schedules & paid expert orchard consultations for apple growers across Kashmir."/>
+
   <title>Shah Pesticides 🍎 Kashmir Apple Orchards | Spray Schedules & Live Weather</title>
   <style>
     /* ═══ TOKENS ═══ */
@@ -252,6 +264,40 @@
     .wx-day-temp{font-size:.78rem;font-weight:700;color:var(--gray9)}
     .wx-day-rain{font-size:.65rem;color:var(--b6);margin-top:.15rem}
     .wx-updated{font-size:.68rem;color:var(--gray6);text-align:right;padding:0 1.25rem .75rem;opacity:.7}
+
+    /* ═══ MANDI PRICE TRACKER ═══ */
+    .mandi-card{
+      max-width:700px;margin:1.25rem auto 0;background:#fff;border-radius:var(--radius);
+      box-shadow:var(--shadow);border:1px solid #bbf7d0;overflow:hidden;
+    }
+    .mandi-loading,.mandi-error{padding:1.75rem;text-align:center;color:var(--gray6);font-size:.9rem}
+    .mandi-error{color:var(--r6)}
+    .mandi-head{
+      padding:1rem 1.25rem;background:linear-gradient(135deg,var(--g8),var(--g7));color:#fff;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;
+    }
+    .mandi-head-title{font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:.5rem}
+    .mandi-head-sub{font-size:.7rem;opacity:.85}
+    .mandi-list{display:flex;flex-direction:column}
+    .mandi-row{
+      padding:.9rem 1.25rem;border-top:1px solid var(--gray2);
+    }
+    .mandi-row-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.5rem}
+    .mandi-name{font-weight:800;font-size:.92rem;color:var(--gray9)}
+    .mandi-district{font-size:.7rem;color:var(--gray6);font-weight:600}
+    .mandi-varieties{display:flex;flex-direction:column;gap:.4rem}
+    .mandi-variety{
+      display:flex;align-items:center;justify-content:space-between;
+      background:var(--gray1);border-radius:8px;padding:.5rem .75rem;font-size:.82rem;
+    }
+    .mandi-variety-name{font-weight:700;color:var(--gray7)}
+    .mandi-variety-price{display:flex;align-items:center;gap:.4rem;font-weight:800;color:var(--g9)}
+    .mandi-variety-range{font-size:.68rem;color:var(--gray6);font-weight:600}
+    .mandi-trend{font-size:.78rem;font-weight:800}
+    .mandi-trend.up{color:#16a34a}
+    .mandi-trend.down{color:var(--r6)}
+    .mandi-trend.flat{color:var(--gray6)}
+    .mandi-updated{font-size:.68rem;color:var(--gray6);text-align:right;padding:.6rem 1.25rem;opacity:.7;border-top:1px solid var(--gray2)}
 
     /* ═══ GOOGLE MAP DASHBOARD ═══ */
     .gmap-dashboard{
@@ -794,6 +840,16 @@
   <div class="weather-iframe-wrap" style="margin-bottom:1.25rem">
     <div class="wx-card" id="wx-card">
       <div class="wx-loading" id="wx-loading">Fetching live conditions for Tral…</div>
+    </div>
+  </div>
+
+  <!-- ═══ MANDI PRICE TRACKER ═══ -->
+  <div class="weather-title" style="margin-top:.25rem">🍎 Today's Apple Mandi Prices — Kashmir Valley &nbsp;·&nbsp;
+    <span style="color:var(--g8);font-weight:700">Govt. Agmarknet Data</span>
+  </div>
+  <div class="weather-iframe-wrap" style="margin-bottom:1.25rem">
+    <div class="mandi-card" id="mandi-card">
+      <div class="mandi-loading" id="mandi-loading">Fetching today's mandi rates…</div>
     </div>
   </div>
   <!-- Google Map Location Dashboard -->
@@ -1894,9 +1950,75 @@ document.getElementById('enquiry-form').addEventListener('submit', function (e) 
   sections.forEach(function (s) { observer.observe(s); });
 })();
 
+/* ══════════════════════════════════════
+   MANDI PRICE TRACKER
+   Reads mandi-prices.json (updated automatically once a day by a
+   GitHub Actions job — see fetch-mandi-prices.mjs). No API key is
+   ever loaded in the browser.
+══════════════════════════════════════ */
+async function loadMandiPrices() {
+  const card = document.getElementById('mandi-card');
+  try {
+    const res = await fetch('./mandi-prices.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('mandi-prices.json not found');
+    const data = await res.json();
+    const mandis = data.mandis || {};
+    const mandiNames = Object.keys(mandis).sort();
+    if (!mandiNames.length) throw new Error('No mandi data available');
+
+    const rowsHtml = mandiNames.map(name => {
+      const info = mandis[name];
+      const varietyNames = Object.keys(info.varieties || {});
+      const varietiesHtml = varietyNames.map(vName => {
+        const v = info.varieties[vName];
+        let trendHtml = '';
+        if (v.prevModal !== undefined && v.prevModal !== null) {
+          const diff = v.modal - v.prevModal;
+          if (diff > 0) trendHtml = `<span class="mandi-trend up">▲ ₹${diff}</span>`;
+          else if (diff < 0) trendHtml = `<span class="mandi-trend down">▼ ₹${Math.abs(diff)}</span>`;
+          else trendHtml = `<span class="mandi-trend flat">— flat</span>`;
+        }
+        return `<div class="mandi-variety">
+          <span class="mandi-variety-name">${vName}</span>
+          <span class="mandi-variety-range">₹${v.min}–₹${v.max}/kg</span>
+          <span class="mandi-variety-price">₹${v.modal}/kg ${trendHtml}</span>
+        </div>`;
+      }).join('');
+
+      return `<div class="mandi-row">
+        <div class="mandi-row-top">
+          <span class="mandi-name">${name}</span>
+          <span class="mandi-district">${info.district || ''}</span>
+        </div>
+        <div class="mandi-varieties">${varietiesHtml}</div>
+      </div>`;
+    }).join('');
+
+    const updatedDate = new Date(data.updated).toLocaleString('en-IN', {
+      day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+    });
+
+    card.innerHTML = `
+      <div class="mandi-head">
+        <div class="mandi-head-title">📈 Modal Price (most common trading rate)</div>
+        <div class="mandi-head-sub">${mandiNames.length} mandis tracked</div>
+      </div>
+      <div class="mandi-list">${rowsHtml}</div>
+      <div class="mandi-updated">Updated ${updatedDate} · Source: ${data.source || 'Agmarknet, Govt. of India'}</div>
+    `;
+  } catch (err) {
+    card.innerHTML = `<div class="mandi-error">
+      ⚠️ Mandi prices couldn't load right now. If you're viewing this inside a chat preview,
+      that panel blocks outside file/network calls — this works normally once the page is hosted.<br>
+      <button onclick="loadMandiPrices()" style="margin-top:.6rem;background:var(--g8);color:#fff;border:none;border-radius:8px;padding:.5rem 1.1rem;font-weight:700;font-size:.83rem;cursor:pointer">↻ Retry</button>
+    </div>`;
+  }
+}
+
 /* ══ INIT ══ */
 applyStage();
 loadWeather();
+loadMandiPrices();
 </script>
 </body>
 </html>
