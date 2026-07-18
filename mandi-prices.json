@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-18T18:28:19.022Z",
-  "source": "Agmarknet (data.gov.in) — Ministry of Agriculture & Farmers Welfare, Govt. of India",
+  "updated": "2026-07-18T18:42:21.676Z",
+  "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
         "Condition": {
-          "min": 1800,
-          "max": 1800,
-          "modal": 1800,
-          "date": "18/07/2026"
+          "min": 18,
+          "max": 18,
+          "modal": 18,
+          "prevModal": 1800
         }
       }
     },
@@ -17,10 +17,10 @@
       "district": "Jammu",
       "varieties": {
         "Delicious": {
-          "min": 8500,
-          "max": 22000,
-          "modal": 15250,
-          "date": "18/07/2026"
+          "min": 85,
+          "max": 220,
+          "modal": 152.5,
+          "prevModal": 15250
         }
       }
     },
@@ -28,10 +28,10 @@
       "district": "Ganderbal",
       "varieties": {
         "Hazratbali/Benoni": {
-          "min": 2500,
-          "max": 3125,
-          "modal": 2812.5,
-          "date": "18/07/2026"
+          "min": 25,
+          "max": 31.25,
+          "modal": 28.13,
+          "prevModal": 2812.5
         }
       }
     },
@@ -39,10 +39,10 @@
       "district": "Kathua",
       "varieties": {
         "Delicious": {
-          "min": 15000,
-          "max": 18000,
-          "modal": 16500,
-          "date": "18/07/2026"
+          "min": 150,
+          "max": 180,
+          "modal": 165,
+          "prevModal": 16500
         }
       }
     }
