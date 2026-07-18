@@ -1,143 +1,158 @@
-/**
- * fetch-mandi-prices.mjs
- * ─────────────────────────────────────────────────────────────
- * Pulls today's Apple mandi prices for Jammu & Kashmir from the
- * Government of India's open data API (Agmarknet, via data.gov.in)
- * and writes them to mandi-prices.json — a small static file that
- * the website reads directly (no API key ever reaches the browser).
- *
- * This is meant to be run automatically once a day by a GitHub
- * Actions cron job (see .github/workflows/update-mandi-prices.yml).
- * You can also run it manually: `node fetch-mandi-prices.mjs`
- *
- * Setup (one-time):
- *   1. Get a free API key: https://data.gov.in/ → Sign Up → My Account → API Keys
- *   2. Add it as a GitHub repo secret named DATA_GOV_IN_API_KEY
- *      (Settings → Secrets and variables → Actions → New repository secret)
- * ─────────────────────────────────────────────────────────────
- */
+#!/usr/bin/env node
+/* ══════════════════════════════════════════════════════════════
+   fetch-mandi-prices.mjs
 
-import { writeFile, readFile } from 'fs/promises';
+   Pulls TODAY'S apple mandi prices for Jammu & Kashmir from the
+   Government of India's official Agmarknet dataset (published via
+   data.gov.in), and writes them to mandi-prices.json in the repo
+   root — the same file index.html already fetches at page load.
 
-const API_KEY = process.env.DATA_GOV_IN_API_KEY;
-const RESOURCE_ID = '9ef84268-d588-465a-a308-a864a43d0070'; // Variety-wise Daily Market Prices (Agmarknet)
+   Run manually:   node fetch-mandi-prices.mjs
+   Run in CI:       triggered daily by .github/workflows/mandi-prices.yml
+
+   Data source:
+   https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi
+   Resource ID: 9ef84268-d588-465a-a308-a864a43d0070
+   No scraping — this is the real government API, published once a
+   day by the Directorate of Marketing & Inspection (DMI).
+══════════════════════════════════════════════════════════════ */
+
+import { readFile, writeFile } from 'fs/promises';
+import { existsSync } from 'fs';
+
+const RESOURCE_ID = '9ef84268-d588-465a-a308-a864a43d0070';
+
+// A real key is free and instant at https://data.gov.in (register → My Account → API Keys).
+// Falls back to the public "test" key so the script still works with zero setup, but that
+// key is shared by everyone on the internet and gets rate-limited — set DATA_GOV_IN_API_KEY
+// as a GitHub Actions secret as soon as you can.
+const API_KEY = process.env.DATA_GOV_IN_API_KEY || '579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571';
+
+const STATE = 'Jammu and Kashmir';
+const COMMODITY = 'Apple';
 const OUTPUT_FILE = new URL('./mandi-prices.json', import.meta.url);
 
-if (!API_KEY) {
-  console.error('Missing DATA_GOV_IN_API_KEY environment variable. See setup notes at the top of this file.');
-  process.exit(1);
-}
-
-// Only the fields we actually need — keeps the JSON tiny.
-function buildUrl(offset) {
-  const params = new URLSearchParams({
-    'api-key': API_KEY,
-    format: 'json',
-    limit: '200',
-    offset: String(offset),
-    'filters[state]': 'Jammu and Kashmir',
-    'filters[commodity]': 'Apple',
-  });
-  return `https://api.data.gov.in/resource/${RESOURCE_ID}?${params.toString()}`;
-}
+// Districts/markets we care about for an orchard-supply audience around Tral/Pulwama.
+// Leave empty to keep every J&K market the API returns.
+const MARKET_ALLOWLIST = null; // e.g. ['Sopore', 'Shopian', 'Parimpore', 'Pulwama', 'Pattan']
 
 async function fetchAllRecords() {
-  let all = [];
+  const records = [];
   let offset = 0;
-  // The API paginates in blocks of ~200; a normal day's worth of J&K apple
-  // records across all mandis/varieties is well under 1000, so a handful
-  // of pages is always enough — this loop just makes sure nothing's missed.
-  for (let page = 0; page < 8; page++) {
-    const res = await fetch(buildUrl(offset));
-    if (!res.ok) throw new Error(`Agmarknet API returned ${res.status}`);
+  const limit = 100;
+
+  while (true) {
+    const url = new URL(`https://api.data.gov.in/resource/${RESOURCE_ID}`);
+    url.searchParams.set('api-key', API_KEY);
+    url.searchParams.set('format', 'json');
+    url.searchParams.set('limit', String(limit));
+    url.searchParams.set('offset', String(offset));
+    url.searchParams.set('filters[state]', STATE);
+    url.searchParams.set('filters[commodity]', COMMODITY);
+
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`Agmarknet API returned HTTP ${res.status}`);
+    }
     const data = await res.json();
-    const records = data.records || [];
-    all = all.concat(records);
-    if (records.length < 200) break;
-    offset += 200;
+    const batch = data.records || [];
+    records.push(...batch);
+
+    offset += limit;
+    const total = Number(data.total || 0);
+    if (batch.length === 0 || offset >= total) break;
   }
-  return all;
+
+  return records;
 }
 
-// The API returns commodity variety as its own field (e.g. "American",
-// "Delicious", "Kullu Delicious", "Maharaji", "Ambri", "Other" etc.)
-// grouped under commodity "Apple". We key everything by market + variety.
-function groupRecords(records) {
-  const byMandi = {};
+function pickLatestPerMarketVariety(records) {
+  // Keep only the most recent arrival_date per (market, variety) pair.
+  const latest = new Map();
+
   for (const r of records) {
-    const mandi = (r.market || 'Unknown Market').trim();
-    const district = (r.district || '').trim();
-    const variety = (r.variety || 'Apple').trim();
-    const date = r.arrival_date || '';
-    const min = Number(r.min_price);
-    const max = Number(r.max_price);
-    const modal = Number(r.modal_price);
-    if (!Number.isFinite(modal)) continue;
+    if (MARKET_ALLOWLIST && !MARKET_ALLOWLIST.includes(r.market)) continue;
 
-    byMandi[mandi] = byMandi[mandi] || { district, varieties: {} };
+    // Agmarknet publishes min/max/modal prices in ₹ per QUINTAL (100 kg),
+    // but the site displays ₹/kg — so divide by 100 here, once, at the source.
+    const min = Number(r.min_price) / 100;
+    const max = Number(r.max_price) / 100;
+    const modal = Number(r.modal_price) / 100;
+    if (!Number.isFinite(modal) || modal <= 0) continue;
 
-    const existing = byMandi[mandi].varieties[variety];
-    // Keep only the most recent date's record per mandi+variety
-    if (!existing || new Date(date) > new Date(existing.date)) {
-      byMandi[mandi].varieties[variety] = { min, max, modal, date };
+    const key = `${r.market}::${r.variety || 'Apple'}`;
+    const [dd, mm, yyyy] = String(r.arrival_date).split('/');
+    const arrivalTs = yyyy ? new Date(`${yyyy}-${mm}-${dd}`).getTime() : 0;
+
+    const existing = latest.get(key);
+    if (!existing || arrivalTs > existing.arrivalTs) {
+      latest.set(key, {
+        market: r.market,
+        district: r.district,
+        variety: r.variety || 'Apple',
+        min, max, modal,
+        arrivalTs,
+        arrivalDate: r.arrival_date,
+      });
     }
   }
-  return byMandi;
+
+  return [...latest.values()];
 }
 
-async function loadPrevious() {
+async function loadPreviousData() {
+  if (!existsSync(OUTPUT_FILE)) return null;
   try {
-    const raw = await readFile(OUTPUT_FILE, 'utf-8');
+    const raw = await readFile(OUTPUT_FILE, 'utf8');
     return JSON.parse(raw);
   } catch {
-    return null; // first run ever, or file doesn't exist yet
+    return null;
   }
 }
 
-function attachTrend(current, previous) {
-  if (!previous || !previous.mandis) return current;
-  for (const [mandi, info] of Object.entries(current.mandis)) {
-    const prevMandi = previous.mandis[mandi];
-    if (!prevMandi) continue;
-    for (const [variety, v] of Object.entries(info.varieties)) {
-      const prevV = prevMandi.varieties && prevMandi.varieties[variety];
-      // Don't compare a day against itself if the API hasn't updated yet
-      if (prevV && prevV.date !== v.date) {
-        v.prevModal = prevV.modal;
-        v.prevDate = prevV.date;
-      } else if (prevV && prevV.prevModal !== undefined) {
-        // API didn't refresh today — carry the last known trend forward
-        v.prevModal = prevV.prevModal;
-        v.prevDate = prevV.prevDate;
-      }
+function buildOutput(rows, previous) {
+  const mandis = {};
+
+  for (const row of rows) {
+    if (!mandis[row.market]) {
+      mandis[row.market] = { district: row.district, varieties: {} };
     }
+    const round2 = (n) => Math.round(n * 100) / 100;
+    const prevModal = previous?.mandis?.[row.market]?.varieties?.[row.variety]?.modal ?? null;
+    mandis[row.market].varieties[row.variety] = {
+      min: round2(row.min),
+      max: round2(row.max),
+      modal: round2(row.modal),
+      prevModal,
+    };
   }
-  return current;
+
+  return {
+    updated: new Date().toISOString(),
+    source: 'Agmarknet, Govt. of India (data.gov.in)',
+    mandis,
+  };
 }
 
 async function main() {
-  console.log('Fetching Kashmir apple mandi prices…');
+  console.log(`Fetching ${COMMODITY} prices for ${STATE} from Agmarknet...`);
   const records = await fetchAllRecords();
-  console.log(`Got ${records.length} raw records from Agmarknet.`);
+  console.log(`Received ${records.length} raw records.`);
 
-  const byMandi = groupRecords(records);
-  let result = {
-    updated: new Date().toISOString(),
-    source: 'Agmarknet (data.gov.in) — Ministry of Agriculture & Farmers Welfare, Govt. of India',
-    mandis: byMandi,
-  };
+  const rows = pickLatestPerMarketVariety(records);
+  if (rows.length === 0) {
+    console.warn('No apple price rows found for today — Agmarknet may not have published J&K apple arrivals yet (common outside peak season, Aug–Nov). Leaving previous file untouched.');
+    return;
+  }
 
-  const previous = await loadPrevious();
-  result = attachTrend(result, previous);
+  const previous = await loadPreviousData();
+  const output = buildOutput(rows, previous);
 
-  await writeFile(OUTPUT_FILE, JSON.stringify(result, null, 2));
-  console.log(`Wrote ${Object.keys(byMandi).length} mandis to mandi-prices.json`);
+  await writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + '\n', 'utf8');
+  console.log(`Wrote ${Object.keys(output.mandis).length} mandis to mandi-prices.json`);
 }
 
 main().catch((err) => {
-  console.error('Failed to update mandi prices:', err);
-  // Exit 0 (not 1) so a temporary Agmarknet outage doesn't break the
-  // GitHub Actions workflow or overwrite yesterday's good data — the
-  // site will just keep showing the last successfully fetched prices.
-  process.exit(0);
+  console.error('Failed to fetch mandi prices:', err);
+  process.exit(1);
 });
