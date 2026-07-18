@@ -1,12 +1,10 @@
 name: Update Kashmir Apple Mandi Prices
 
-# Runs automatically every day at 5:00 AM IST (11:30 PM UTC the previous day),
-# which is before most orchardists check the site in the morning.
-# You can also trigger it manually anytime from the Actions tab ("Run workflow").
 on:
   schedule:
-    - cron: '30 23 * * *'
-  workflow_dispatch: {}
+    # 03:00 UTC = 8:30 AM IST — after Agmarknet's morning market data is published
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
 
 permissions:
   contents: write
@@ -31,7 +29,8 @@ jobs:
       - name: Commit updated prices (if changed)
         run: |
           git config user.name "mandi-price-bot"
-          git config user.email "actions@github.com"
+          git config user.email "mandi-price-bot@users.noreply.github.com"
           git add mandi-prices.json
-          git diff --cached --quiet || git commit -m "Update mandi prices $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "Update mandi prices $(date +'%Y-%m-%d')"
+          git pull --rebase origin main
           git push
