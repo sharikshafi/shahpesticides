@@ -1,25 +1,49 @@
 {
-  "updated": "2026-07-09T00:00:00.000Z",
-  "source": "Sample placeholder — replaced automatically once the GitHub Action runs with a real API key",
+  "updated": "2026-07-18T18:28:19.022Z",
+  "source": "Agmarknet (data.gov.in) — Ministry of Agriculture & Farmers Welfare, Govt. of India",
   "mandis": {
-    "Parimpora": {
-      "district": "Srinagar",
-      "varieties": {
-        "American/Delicious": { "min": 47, "max": 57, "modal": 52, "date": "2026-07-08", "prevModal": 50 },
-        "Kullu Delicious": { "min": 24, "max": 32, "modal": 28, "date": "2026-07-08", "prevModal": 28 }
-      }
-    },
-    "Sopore": {
+    "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
-        "American/Delicious": { "min": 45, "max": 55, "modal": 50, "date": "2026-07-08", "prevModal": 48 },
-        "Maharaji": { "min": 30, "max": 38, "modal": 34, "date": "2026-07-08", "prevModal": 35 }
+        "Condition": {
+          "min": 1800,
+          "max": 1800,
+          "modal": 1800,
+          "date": "18/07/2026"
+        }
       }
     },
-    "Shopian": {
-      "district": "Shopian",
+    "Narwal Jammu (F&V)": {
+      "district": "Jammu",
       "varieties": {
-        "American/Delicious": { "min": 48, "max": 58, "modal": 53, "date": "2026-07-08", "prevModal": 51 }
+        "Delicious": {
+          "min": 8500,
+          "max": 22000,
+          "modal": 15250,
+          "date": "18/07/2026"
+        }
+      }
+    },
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 2500,
+          "max": 3125,
+          "modal": 2812.5,
+          "date": "18/07/2026"
+        }
+      }
+    },
+    "Kathua (F&V)": {
+      "district": "Kathua",
+      "varieties": {
+        "Delicious": {
+          "min": 15000,
+          "max": 18000,
+          "modal": 16500,
+          "date": "18/07/2026"
+        }
       }
     }
   }
