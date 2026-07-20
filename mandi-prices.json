@@ -1,15 +1,15 @@
 {
-  "updated": "2026-07-18T18:42:21.676Z",
+  "updated": "2026-07-20T12:03:02.965Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
       "varieties": {
-        "Condition": {
-          "min": 18,
-          "max": 18,
-          "modal": 18,
-          "prevModal": 1800
+        "Hazratbali/Benoni": {
+          "min": 31.25,
+          "max": 37.5,
+          "modal": 33.75,
+          "prevModal": null
         }
       }
     },
@@ -17,10 +17,27 @@
       "district": "Jammu",
       "varieties": {
         "Delicious": {
-          "min": 85,
-          "max": 220,
-          "modal": 152.5,
-          "prevModal": 15250
+          "min": 80,
+          "max": 230,
+          "modal": 155,
+          "prevModal": 152.5
+        }
+      }
+    },
+    "Parimpore Srinagar (F&V)": {
+      "district": "Srinagar",
+      "varieties": {
+        "Mollie’s Delicious": {
+          "min": 20,
+          "max": 40,
+          "modal": 30,
+          "prevModal": null
+        },
+        "Hazratbali/Benoni": {
+          "min": 25,
+          "max": 37.5,
+          "modal": 31.25,
+          "prevModal": null
         }
       }
     },
@@ -29,9 +46,20 @@
       "varieties": {
         "Hazratbali/Benoni": {
           "min": 25,
-          "max": 31.25,
-          "modal": 28.13,
-          "prevModal": 2812.5
+          "max": 30,
+          "modal": 27.5,
+          "prevModal": 28.13
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Condition": {
+          "min": 19,
+          "max": 19,
+          "modal": 19,
+          "prevModal": 18
         }
       }
     },
@@ -42,7 +70,7 @@
           "min": 150,
           "max": 180,
           "modal": 165,
-          "prevModal": 16500
+          "prevModal": 165
         }
       }
     }
