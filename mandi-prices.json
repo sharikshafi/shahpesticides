@@ -1,46 +1,7 @@
 {
-  "updated": "2026-07-20T12:03:02.965Z",
+  "updated": "2026-07-21T10:51:46.643Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
-      "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 31.25,
-          "max": 37.5,
-          "modal": 33.75,
-          "prevModal": null
-        }
-      }
-    },
-    "Narwal Jammu (F&V)": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 80,
-          "max": 230,
-          "modal": 155,
-          "prevModal": 152.5
-        }
-      }
-    },
-    "Parimpore Srinagar (F&V)": {
-      "district": "Srinagar",
-      "varieties": {
-        "Mollie’s Delicious": {
-          "min": 20,
-          "max": 40,
-          "modal": 30,
-          "prevModal": null
-        },
-        "Hazratbali/Benoni": {
-          "min": 25,
-          "max": 37.5,
-          "modal": 31.25,
-          "prevModal": null
-        }
-      }
-    },
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
@@ -48,7 +9,18 @@
           "min": 25,
           "max": 30,
           "modal": 27.5,
-          "prevModal": 28.13
+          "prevModal": 27.5
+        }
+      }
+    },
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
+      "varieties": {
+        "Apple": {
+          "min": 120,
+          "max": 120,
+          "modal": 120,
+          "prevModal": null
         }
       }
     },
@@ -59,7 +31,7 @@
           "min": 19,
           "max": 19,
           "modal": 19,
-          "prevModal": 18
+          "prevModal": 19
         }
       }
     },
@@ -71,6 +43,17 @@
           "max": 180,
           "modal": 165,
           "prevModal": 165
+        }
+      }
+    },
+    "Narwal Jammu (F&V)": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 80,
+          "max": 210,
+          "modal": 145,
+          "prevModal": 155
         }
       }
     }
