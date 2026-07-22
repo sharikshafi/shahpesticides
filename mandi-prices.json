@@ -1,14 +1,36 @@
 {
-  "updated": "2026-07-21T10:51:46.643Z",
+  "updated": "2026-07-22T10:54:01.929Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Condition": {
+          "min": 18.5,
+          "max": 18.5,
+          "modal": 18.5,
+          "prevModal": 19
+        }
+      }
+    },
+    "Narwal Jammu (F&V)": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 100,
+          "max": 240,
+          "modal": 170,
+          "prevModal": 145
+        }
+      }
+    },
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
         "Hazratbali/Benoni": {
           "min": 25,
-          "max": 30,
-          "modal": 27.5,
+          "max": 31.25,
+          "modal": 28.13,
           "prevModal": 27.5
         }
       }
@@ -20,40 +42,18 @@
           "min": 120,
           "max": 120,
           "modal": 120,
+          "prevModal": 120
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 30,
+          "max": 35,
+          "modal": 32.5,
           "prevModal": null
-        }
-      }
-    },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Condition": {
-          "min": 19,
-          "max": 19,
-          "modal": 19,
-          "prevModal": 19
-        }
-      }
-    },
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 150,
-          "max": 180,
-          "modal": 165,
-          "prevModal": 165
-        }
-      }
-    },
-    "Narwal Jammu (F&V)": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 80,
-          "max": 210,
-          "modal": 145,
-          "prevModal": 155
         }
       }
     }
