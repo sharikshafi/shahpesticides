@@ -1,40 +1,7 @@
 {
-  "updated": "2026-07-22T10:54:01.929Z",
+  "updated": "2026-07-23T10:54:04.963Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Condition": {
-          "min": 18.5,
-          "max": 18.5,
-          "modal": 18.5,
-          "prevModal": 19
-        }
-      }
-    },
-    "Narwal Jammu (F&V)": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 100,
-          "max": 240,
-          "modal": 170,
-          "prevModal": 145
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 25,
-          "max": 31.25,
-          "modal": 28.13,
-          "prevModal": 27.5
-        }
-      }
-    },
     "Fruit and Vegetable Market Udhampur": {
       "district": "Udhampur",
       "varieties": {
@@ -46,13 +13,52 @@
         }
       }
     },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
       "varieties": {
         "Hazratbali/Benoni": {
-          "min": 30,
-          "max": 35,
-          "modal": 32.5,
+          "min": 25,
+          "max": 30,
+          "modal": 27.5,
+          "prevModal": 28.13
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Condition": {
+          "min": 19,
+          "max": 19,
+          "modal": 19,
+          "prevModal": 18.5
+        },
+        "Hazratbali/Benoni": {
+          "min": 15,
+          "max": 15,
+          "modal": 15,
+          "prevModal": null
+        }
+      }
+    },
+    "Narwal Jammu (F&V)": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 100,
+          "max": 240,
+          "modal": 170,
+          "prevModal": 170
+        }
+      }
+    },
+    "Kathua (F&V)": {
+      "district": "Kathua",
+      "varieties": {
+        "Delicious": {
+          "min": 150,
+          "max": 180,
+          "modal": 165,
           "prevModal": null
         }
       }
