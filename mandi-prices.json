@@ -1,29 +1,7 @@
 {
-  "updated": "2026-07-24T10:35:41.728Z",
+  "updated": "2026-07-25T09:20:41.391Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 150,
-          "max": 180,
-          "modal": 165,
-          "prevModal": 165
-        }
-      }
-    },
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 100,
-          "max": 220,
-          "modal": 160,
-          "prevModal": null
-        }
-      }
-    },
     "Fruit and Vegetable Market Udhampur": {
       "district": "Udhampur",
       "varieties": {
@@ -35,6 +13,39 @@
         }
       }
     },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Condition": {
+          "min": 19,
+          "max": 19,
+          "modal": 19,
+          "prevModal": null
+        }
+      }
+    },
+    "MAC F&V Market Narwal Jammu": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 100,
+          "max": 210,
+          "modal": 155,
+          "prevModal": 160
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 25,
+          "max": 31.25,
+          "modal": 27.5,
+          "prevModal": null
+        }
+      }
+    },
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
@@ -42,7 +53,18 @@
           "min": 100,
           "max": 120,
           "modal": 110,
-          "prevModal": null
+          "prevModal": 110
+        }
+      }
+    },
+    "Kathua (F&V)": {
+      "district": "Kathua",
+      "varieties": {
+        "Delicious": {
+          "min": 150,
+          "max": 180,
+          "modal": 165,
+          "prevModal": 165
         }
       }
     }
