@@ -1,47 +1,26 @@
 {
-  "updated": "2026-07-25T09:20:41.391Z",
+  "updated": "2026-07-27T13:30:04.065Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
-      "varieties": {
-        "Apple": {
-          "min": 120,
-          "max": 120,
-          "modal": 120,
-          "prevModal": 120
-        }
-      }
-    },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Condition": {
-          "min": 19,
-          "max": 19,
-          "modal": 19,
-          "prevModal": null
-        }
-      }
-    },
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 100,
-          "max": 210,
-          "modal": 155,
-          "prevModal": 160
-        }
-      }
-    },
     "Handwara Kupwara (F&V)": {
       "district": "Kupwara",
       "varieties": {
         "Hazratbali/Benoni": {
           "min": 25,
-          "max": 31.25,
+          "max": 30,
           "modal": 27.5,
+          "prevModal": 27.5
+        },
+        "Rizakwadi": {
+          "min": 25,
+          "max": 25,
+          "modal": 25,
+          "prevModal": null
+        },
+        "Hdp Gala Group": {
+          "min": 50,
+          "max": 50,
+          "modal": 50,
           "prevModal": null
         }
       }
@@ -51,8 +30,8 @@
       "varieties": {
         "Other": {
           "min": 100,
-          "max": 120,
-          "modal": 110,
+          "max": 140,
+          "modal": 120,
           "prevModal": 110
         }
       }
@@ -61,10 +40,38 @@
       "district": "Kathua",
       "varieties": {
         "Delicious": {
-          "min": 150,
-          "max": 180,
-          "modal": 165,
+          "min": 120,
+          "max": 150,
+          "modal": 135,
           "prevModal": 165
+        }
+      }
+    },
+    "MAC F&V Market Narwal Jammu": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 110,
+          "max": 220,
+          "modal": 165,
+          "prevModal": 155
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 13,
+          "max": 13,
+          "modal": 13,
+          "prevModal": null
+        },
+        "Condition": {
+          "min": 18,
+          "max": 18,
+          "modal": 18,
+          "prevModal": 19
         }
       }
     }
