@@ -1,38 +1,21 @@
 {
-  "updated": "2026-07-27T13:30:04.065Z",
+  "updated": "2026-07-28T11:28:22.301Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
         "Hazratbali/Benoni": {
-          "min": 25,
-          "max": 30,
-          "modal": 27.5,
-          "prevModal": 27.5
+          "min": 13.5,
+          "max": 13.5,
+          "modal": 13.5,
+          "prevModal": 13
         },
-        "Rizakwadi": {
-          "min": 25,
-          "max": 25,
-          "modal": 25,
-          "prevModal": null
-        },
-        "Hdp Gala Group": {
-          "min": 50,
-          "max": 50,
-          "modal": 50,
-          "prevModal": null
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Other": {
-          "min": 100,
-          "max": 140,
-          "modal": 120,
-          "prevModal": 110
+        "Condition": {
+          "min": 18.5,
+          "max": 18.5,
+          "modal": 18.5,
+          "prevModal": 18
         }
       }
     },
@@ -43,7 +26,7 @@
           "min": 120,
           "max": 150,
           "modal": 135,
-          "prevModal": 165
+          "prevModal": 135
         }
       }
     },
@@ -52,26 +35,54 @@
       "varieties": {
         "Delicious": {
           "min": 110,
-          "max": 220,
-          "modal": 165,
-          "prevModal": 155
+          "max": 230,
+          "modal": 170,
+          "prevModal": 165
         }
       }
     },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
+      "varieties": {
+        "Apple": {
+          "min": 120,
+          "max": 120,
+          "modal": 120,
+          "prevModal": null
+        }
+      }
+    },
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Other": {
+          "min": 80,
+          "max": 120,
+          "modal": 100,
+          "prevModal": 120
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
       "varieties": {
         "Hazratbali/Benoni": {
-          "min": 13,
-          "max": 13,
-          "modal": 13,
-          "prevModal": null
+          "min": 25,
+          "max": 25,
+          "modal": 25,
+          "prevModal": 27.5
         },
-        "Condition": {
-          "min": 18,
-          "max": 18,
-          "modal": 18,
-          "prevModal": 19
+        "Hdp Gala Group": {
+          "min": 45,
+          "max": 53.75,
+          "modal": 50,
+          "prevModal": 50
+        },
+        "Rizakwadi": {
+          "min": 25,
+          "max": 25,
+          "modal": 25,
+          "prevModal": 25
         }
       }
     }
