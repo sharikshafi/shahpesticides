@@ -1,21 +1,54 @@
 {
-  "updated": "2026-07-28T11:28:22.301Z",
+  "updated": "2026-07-29T11:36:18.446Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Other": {
+          "min": 80,
+          "max": 120,
+          "modal": 100,
+          "prevModal": 100
+        }
+      }
+    },
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
         "Hazratbali/Benoni": {
-          "min": 13.5,
-          "max": 13.5,
-          "modal": 13.5,
-          "prevModal": 13
+          "min": 14,
+          "max": 14,
+          "modal": 14,
+          "prevModal": 13.5
         },
         "Condition": {
-          "min": 18.5,
-          "max": 18.5,
-          "modal": 18.5,
-          "prevModal": 18
+          "min": 19,
+          "max": 19,
+          "modal": 19,
+          "prevModal": 18.5
+        }
+      }
+    },
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
+      "varieties": {
+        "Apple": {
+          "min": 120,
+          "max": 120,
+          "modal": 120,
+          "prevModal": 120
+        }
+      }
+    },
+    "MAC F&V Market Narwal Jammu": {
+      "district": "Jammu",
+      "varieties": {
+        "Delicious": {
+          "min": 110,
+          "max": 220,
+          "modal": 165,
+          "prevModal": 170
         }
       }
     },
@@ -27,62 +60,6 @@
           "max": 150,
           "modal": 135,
           "prevModal": 135
-        }
-      }
-    },
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
-      "varieties": {
-        "Delicious": {
-          "min": 110,
-          "max": 230,
-          "modal": 170,
-          "prevModal": 165
-        }
-      }
-    },
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
-      "varieties": {
-        "Apple": {
-          "min": 120,
-          "max": 120,
-          "modal": 120,
-          "prevModal": null
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Other": {
-          "min": 80,
-          "max": 120,
-          "modal": 100,
-          "prevModal": 120
-        }
-      }
-    },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
-      "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 25,
-          "max": 25,
-          "modal": 25,
-          "prevModal": 27.5
-        },
-        "Hdp Gala Group": {
-          "min": 45,
-          "max": 53.75,
-          "modal": 50,
-          "prevModal": 50
-        },
-        "Rizakwadi": {
-          "min": 25,
-          "max": 25,
-          "modal": 25,
-          "prevModal": 25
         }
       }
     }
