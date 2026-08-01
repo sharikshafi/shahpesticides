@@ -1,21 +1,32 @@
 {
-  "updated": "2026-07-30T10:54:21.193Z",
+  "updated": "2026-08-01T10:12:05.915Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Other": {
+          "min": 80,
+          "max": 120,
+          "modal": 100,
+          "prevModal": 125
+        }
+      }
+    },
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 13.5,
-          "max": 13.5,
-          "modal": 13.5,
-          "prevModal": 14
-        },
         "Condition": {
           "min": 18,
           "max": 18,
           "modal": 18,
-          "prevModal": 19
+          "prevModal": 18
+        },
+        "Hazratbali/Benoni": {
+          "min": 13.5,
+          "max": 13.5,
+          "modal": 13.5,
+          "prevModal": 13.5
         }
       }
     },
@@ -30,25 +41,14 @@
         }
       }
     },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
       "varieties": {
-        "Other": {
-          "min": 100,
-          "max": 150,
-          "modal": 125,
-          "prevModal": 100
-        }
-      }
-    },
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 40,
-          "max": 130,
-          "modal": 85,
-          "prevModal": 135
+        "Hdp Gala Group": {
+          "min": 42.5,
+          "max": 42.5,
+          "modal": 42.5,
+          "prevModal": null
         }
       }
     }
