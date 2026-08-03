@@ -1,7 +1,24 @@
 {
-  "updated": "2026-08-01T10:12:05.915Z",
+  "updated": "2026-08-03T06:21:37.140Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 15,
+          "max": 15,
+          "modal": 15,
+          "prevModal": 13.5
+        },
+        "Condition": {
+          "min": 18,
+          "max": 18,
+          "modal": 18,
+          "prevModal": 18
+        }
+      }
+    },
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
@@ -9,45 +26,28 @@
           "min": 80,
           "max": 120,
           "modal": 100,
-          "prevModal": 125
+          "prevModal": 100
         }
       }
     },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Condition": {
-          "min": 18,
-          "max": 18,
-          "modal": 18,
-          "prevModal": 18
-        },
-        "Hazratbali/Benoni": {
-          "min": 13.5,
-          "max": 13.5,
-          "modal": 13.5,
-          "prevModal": 13.5
-        }
-      }
-    },
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
       "varieties": {
         "Apple": {
-          "min": 120,
-          "max": 120,
-          "modal": 120,
-          "prevModal": 120
+          "min": 60,
+          "max": 60,
+          "modal": 60,
+          "prevModal": null
         }
       }
     },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
+    "Kathua (F&V)": {
+      "district": "Kathua",
       "varieties": {
-        "Hdp Gala Group": {
-          "min": 42.5,
-          "max": 42.5,
-          "modal": 42.5,
+        "Delicious": {
+          "min": 40,
+          "max": 140,
+          "modal": 90,
           "prevModal": null
         }
       }
