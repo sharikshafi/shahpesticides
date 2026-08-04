@@ -1,53 +1,14 @@
 {
-  "updated": "2026-08-03T06:21:37.140Z",
+  "updated": "2026-08-04T05:45:23.846Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 15,
-          "max": 15,
-          "modal": 15,
-          "prevModal": 13.5
-        },
-        "Condition": {
-          "min": 18,
-          "max": 18,
-          "modal": 18,
-          "prevModal": 18
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
+    "Kulgam (F&V)": {
+      "district": "Kulgam",
       "varieties": {
         "Other": {
-          "min": 80,
-          "max": 120,
-          "modal": 100,
-          "prevModal": 100
-        }
-      }
-    },
-    "Rajouri (Phaliana) (F&V)": {
-      "district": "Rajouri",
-      "varieties": {
-        "Apple": {
-          "min": 60,
-          "max": 60,
-          "modal": 60,
-          "prevModal": null
-        }
-      }
-    },
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 40,
-          "max": 140,
-          "modal": 90,
+          "min": 110,
+          "max": 155,
+          "modal": 125,
           "prevModal": null
         }
       }
