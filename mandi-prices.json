@@ -1,14 +1,48 @@
 {
-  "updated": "2026-08-04T05:45:23.846Z",
+  "updated": "2026-08-05T05:44:25.936Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Kulgam (F&V)": {
-      "district": "Kulgam",
+    "APMC/MAC Shopian": {
+      "district": "Shopian",
       "varieties": {
+        "Hdp Gala Group": {
+          "min": 90,
+          "max": 110,
+          "modal": 100,
+          "prevModal": null
+        }
+      }
+    },
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
+      "varieties": {
+        "Apple": {
+          "min": 120,
+          "max": 120,
+          "modal": 120,
+          "prevModal": null
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Hazratbali/Benoni": {
+          "min": 14,
+          "max": 14,
+          "modal": 14,
+          "prevModal": null
+        },
+        "Condition": {
+          "min": 18.5,
+          "max": 18.5,
+          "modal": 18.5,
+          "prevModal": null
+        },
         "Other": {
-          "min": 110,
-          "max": 155,
-          "modal": 125,
+          "min": 75,
+          "max": 75,
+          "modal": 75,
           "prevModal": null
         }
       }
