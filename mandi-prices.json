@@ -1,49 +1,15 @@
 {
-  "updated": "2026-08-05T05:44:25.936Z",
+  "updated": "2026-08-06T05:47:33.619Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "APMC/MAC Shopian": {
       "district": "Shopian",
       "varieties": {
         "Hdp Gala Group": {
-          "min": 90,
-          "max": 110,
-          "modal": 100,
-          "prevModal": null
-        }
-      }
-    },
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
-      "varieties": {
-        "Apple": {
-          "min": 120,
-          "max": 120,
-          "modal": 120,
-          "prevModal": null
-        }
-      }
-    },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Hazratbali/Benoni": {
-          "min": 14,
-          "max": 14,
-          "modal": 14,
-          "prevModal": null
-        },
-        "Condition": {
-          "min": 18.5,
-          "max": 18.5,
-          "modal": 18.5,
-          "prevModal": null
-        },
-        "Other": {
-          "min": 75,
-          "max": 75,
-          "modal": 75,
-          "prevModal": null
+          "min": 80,
+          "max": 100,
+          "modal": 90,
+          "prevModal": 100
         }
       }
     }
