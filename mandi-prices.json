@@ -1,15 +1,27 @@
 {
-  "updated": "2026-08-06T05:47:33.619Z",
+  "updated": "2026-08-07T04:53:08.606Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "APMC/MAC Shopian": {
-      "district": "Shopian",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
-        "Hdp Gala Group": {
-          "min": 80,
-          "max": 100,
-          "modal": 90,
-          "prevModal": 100
+        "Condition": {
+          "min": 18,
+          "max": 18,
+          "modal": 18,
+          "prevModal": null
+        },
+        "Other": {
+          "min": 74,
+          "max": 74,
+          "modal": 74,
+          "prevModal": null
+        },
+        "Hazratbali/Benoni": {
+          "min": 14.5,
+          "max": 14.5,
+          "modal": 14.5,
+          "prevModal": null
         }
       }
     }
