@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-08T04:09:32.462Z",
+  "updated": "2026-08-12T04:45:45.002Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
@@ -10,6 +10,12 @@
           "max": 74,
           "modal": 74,
           "prevModal": 74
+        },
+        "Delicious": {
+          "min": 32,
+          "max": 32,
+          "modal": 32,
+          "prevModal": null
         },
         "Hazratbali/Benoni": {
           "min": 14.5,
