@@ -1,27 +1,38 @@
 {
-  "updated": "2026-08-12T04:45:45.002Z",
+  "updated": "2026-08-13T04:49:16.722Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
         "Other": {
-          "min": 74,
-          "max": 74,
-          "modal": 74,
+          "min": 73,
+          "max": 73,
+          "modal": 73,
           "prevModal": 74
         },
         "Delicious": {
           "min": 32,
           "max": 32,
           "modal": 32,
-          "prevModal": null
+          "prevModal": 32
         },
-        "Hazratbali/Benoni": {
-          "min": 14.5,
-          "max": 14.5,
-          "modal": 14.5,
-          "prevModal": 14.5
+        "Rizakwadi": {
+          "min": 25,
+          "max": 25,
+          "modal": 25,
+          "prevModal": null
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
+        "Gala Mast": {
+          "min": 90,
+          "max": 120,
+          "modal": 100,
+          "prevModal": null
         }
       }
     }
