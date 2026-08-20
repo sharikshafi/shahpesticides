@@ -1,15 +1,21 @@
 {
-  "updated": "2026-08-17T03:48:24.239Z",
+  "updated": "2026-08-20T03:44:00.206Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
         "Delicious": {
-          "min": 28,
-          "max": 28,
-          "modal": 28,
-          "prevModal": 32
+          "min": 29,
+          "max": 29,
+          "modal": 29,
+          "prevModal": 28
+        },
+        "Other": {
+          "min": 72,
+          "max": 72,
+          "modal": 72,
+          "prevModal": null
         }
       }
     }
