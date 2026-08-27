@@ -1,20 +1,70 @@
 {
-  "updated": "2026-08-20T03:44:00.206Z",
+  "updated": "2026-08-27T13:47:01.824Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
         "Delicious": {
-          "min": 29,
-          "max": 29,
-          "modal": 29,
-          "prevModal": 28
+          "min": 30,
+          "max": 30,
+          "modal": 30,
+          "prevModal": 29
         },
         "Other": {
-          "min": 72,
-          "max": 72,
-          "modal": 72,
+          "min": 70,
+          "max": 70,
+          "modal": 70,
+          "prevModal": 72
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Apple": {
+          "min": 55,
+          "max": 55,
+          "modal": 55,
+          "prevModal": null
+        }
+      }
+    },
+    "MAC F&V Market Narwal Jammu": {
+      "district": "Jammu",
+      "varieties": {
+        "Apple": {
+          "min": 33,
+          "max": 80,
+          "modal": 56.5,
+          "prevModal": null
+        }
+      }
+    },
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Other": {
+          "min": 120,
+          "max": 160,
+          "modal": 140,
+          "prevModal": null
+        },
+        "Delicious": {
+          "min": 62.5,
+          "max": 75,
+          "modal": 68.75,
+          "prevModal": null
+        }
+      }
+    },
+    "Kathua (F&V)": {
+      "district": "Kathua",
+      "varieties": {
+        "Delicious": {
+          "min": 30,
+          "max": 100,
+          "modal": 65,
           "prevModal": null
         }
       }
