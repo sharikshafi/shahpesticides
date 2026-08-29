@@ -1,63 +1,7 @@
 {
-  "updated": "2026-08-27T13:47:01.824Z",
+  "updated": "2026-08-29T09:43:32.638Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "Delicious": {
-          "min": 30,
-          "max": 30,
-          "modal": 30,
-          "prevModal": 29
-        },
-        "Other": {
-          "min": 70,
-          "max": 70,
-          "modal": 70,
-          "prevModal": 72
-        }
-      }
-    },
-    "Rajouri (Phaliana) (F&V)": {
-      "district": "Rajouri",
-      "varieties": {
-        "Apple": {
-          "min": 55,
-          "max": 55,
-          "modal": 55,
-          "prevModal": null
-        }
-      }
-    },
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
-      "varieties": {
-        "Apple": {
-          "min": 33,
-          "max": 80,
-          "modal": 56.5,
-          "prevModal": null
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Other": {
-          "min": 120,
-          "max": 160,
-          "modal": 140,
-          "prevModal": null
-        },
-        "Delicious": {
-          "min": 62.5,
-          "max": 75,
-          "modal": 68.75,
-          "prevModal": null
-        }
-      }
-    },
     "Kathua (F&V)": {
       "district": "Kathua",
       "varieties": {
@@ -65,6 +9,68 @@
           "min": 30,
           "max": 100,
           "modal": 65,
+          "prevModal": 65
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
+        "Gala Mast": {
+          "min": 100,
+          "max": 110,
+          "modal": 105,
+          "prevModal": null
+        },
+        "Hdp Gala Group": {
+          "min": 100,
+          "max": 110,
+          "modal": 105,
+          "prevModal": null
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "Other": {
+          "min": 70,
+          "max": 70,
+          "modal": 70,
+          "prevModal": 70
+        },
+        "Delicious": {
+          "min": 32,
+          "max": 32,
+          "modal": 32,
+          "prevModal": 30
+        }
+      }
+    },
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Delicious": {
+          "min": 62.5,
+          "max": 81.25,
+          "modal": 71.88,
+          "prevModal": 68.75
+        },
+        "Other": {
+          "min": 140,
+          "max": 160,
+          "modal": 150,
+          "prevModal": 140
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Delicious": {
+          "min": 80,
+          "max": 80,
+          "modal": 80,
           "prevModal": null
         }
       }
