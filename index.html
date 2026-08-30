@@ -19,6 +19,14 @@
   <meta name="twitter:description" content="Live weather, SKUAST-K spray schedules & paid expert orchard consultations for apple growers across Kashmir."/>
 
   <title>Shah Pesticides 🍎 Kashmir Apple Orchards | Spray Schedules & Live Weather</title>
+
+  <!-- ═══ FAVICON / TAB ICON ═══ -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="./favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <meta name="theme-color" content="#16a34a">
   <style>
     /* ═══ TOKENS ═══ */
     :root{
@@ -257,12 +265,49 @@
     .wx-forecast{display:flex;padding:1rem 1.25rem;gap:.5rem;overflow-x:auto}
     .wx-day{
       flex:1;min-width:78px;text-align:center;padding:.7rem .4rem;
-      border-radius:10px;background:var(--gray1);
+      border-radius:10px;background:var(--gray1);cursor:pointer;
+      border:1.5px solid transparent;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease,background .15s ease;
     }
+    .wx-day:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.08)}
+    .wx-day:focus-visible{outline:2px solid var(--g5);outline-offset:2px}
+    .wx-day.active{background:var(--g2);border-color:var(--g5)}
+    .wx-day.active .wx-day-name{color:var(--g8)}
     .wx-day-name{font-size:.68rem;font-weight:700;color:var(--gray6);text-transform:uppercase}
     .wx-day-icon{font-size:1.3rem;margin:.25rem 0}
     .wx-day-temp{font-size:.78rem;font-weight:700;color:var(--gray9)}
     .wx-day-rain{font-size:.65rem;color:var(--b6);margin-top:.15rem}
+    .wx-hourly-label{
+      font-size:.68rem;font-weight:700;color:var(--gray6);text-transform:uppercase;
+      letter-spacing:.5px;padding:.9rem 1.25rem 0;display:flex;align-items:center;
+      justify-content:space-between;gap:.5rem;
+    }
+    .wx-hourly-hint{font-size:.62rem;font-weight:600;text-transform:none;letter-spacing:0;opacity:.75}
+    .wx-hourly-scroll{overflow-x:auto;padding:.85rem 1.25rem 1.1rem}
+    .wx-hourly{display:flex;gap:.45rem;width:max-content}
+    .wx-hour{
+      flex:0 0 auto;width:52px;text-align:center;padding:.55rem .3rem .6rem;
+      border-radius:12px;background:var(--gray1);transition:transform .15s ease,box-shadow .15s ease;
+      cursor:default;
+    }
+    .wx-hour:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.08)}
+    .wx-hour.now{background:var(--g2);border:1.5px solid var(--g5)}
+    .wx-hour-time{font-size:.6rem;font-weight:800;color:var(--gray6);text-transform:uppercase;white-space:nowrap}
+    .wx-hour-icon{font-size:1.05rem;margin:.3rem 0 .15rem}
+    .wx-hour-bar-wrap{
+      height:46px;width:14px;margin:.15rem auto .3rem;border-radius:999px;
+      background:var(--gray2);display:flex;align-items:flex-end;overflow:hidden;
+    }
+    .wx-hour-bar{
+      width:100%;border-radius:999px;min-height:5px;
+      transform:scaleY(0);transform-origin:bottom;
+      animation:wxGrow .7s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    .wx-hour-bar.rain-low{background:linear-gradient(180deg,#4ade80,#16a34a)}
+    .wx-hour-bar.rain-mid{background:linear-gradient(180deg,#fbbf24,#d97706)}
+    .wx-hour-bar.rain-high{background:linear-gradient(180deg,#60a5fa,#1d4ed8)}
+    @keyframes wxGrow{to{transform:scaleY(1)}}
+    .wx-hour-pct{font-size:.62rem;font-weight:800;color:var(--gray7)}
+    .wx-hour-temp{font-size:.72rem;font-weight:700;color:var(--gray9);margin-top:.15rem}
     .wx-updated{font-size:.68rem;color:var(--gray6);text-align:right;padding:0 1.25rem .75rem;opacity:.7}
 
     /* ═══ MANDI PRICE TRACKER ═══ */
@@ -280,10 +325,13 @@
     .mandi-head-sub{font-size:.7rem;opacity:.85}
     .mandi-list{display:flex;flex-direction:column}
     .mandi-row{
-      padding:.9rem 1.25rem;border-top:1px solid var(--gray2);
+      padding:.9rem 1.25rem;border-top:1px solid var(--gray2);cursor:pointer;
+      transition:background .15s ease;
     }
+    .mandi-row:hover{background:var(--gray1)}
     .mandi-row-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.5rem}
     .mandi-name{font-weight:800;font-size:.92rem;color:var(--gray9)}
+    .mandi-name::after{content:" 📈";font-size:.7rem;opacity:.55}
     .mandi-district{font-size:.7rem;color:var(--gray6);font-weight:600}
     .mandi-varieties{display:flex;flex-direction:column;gap:.4rem}
     .mandi-variety{
@@ -299,6 +347,25 @@
     .mandi-trend.flat{color:var(--gray6)}
     .mandi-updated{font-size:.68rem;color:var(--gray6);text-align:right;padding:.6rem 1.25rem;opacity:.7;border-top:1px solid var(--gray2)}
     .mandi-caveat{font-size:.72rem;color:var(--gray6);padding:.65rem 1.25rem;background:var(--gray1);border-top:1px solid var(--gray2);line-height:1.5}
+
+    /* ═══ MANDI TREND CHART PANEL ═══ */
+    .mandi-trend-panel{
+      display:none;margin-top:.75rem;padding-top:.75rem;border-top:1px dashed var(--gray2);
+    }
+    .mandi-trend-panel.open{display:block}
+    .mandi-trend-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;gap:.5rem;flex-wrap:wrap}
+    .mandi-trend-title{font-size:.72rem;font-weight:700;color:var(--gray6);text-transform:uppercase;letter-spacing:.4px}
+    .mandi-trend-toggle{display:flex;gap:.3rem;background:var(--gray1);border-radius:999px;padding:.2rem}
+    .mandi-trend-toggle button{
+      border:none;background:transparent;font-size:.68rem;font-weight:700;color:var(--gray6);
+      padding:.3rem .7rem;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;
+    }
+    .mandi-trend-toggle button.active{background:var(--g8);color:#fff}
+    .mandi-trend-svg-wrap{width:100%;overflow-x:auto}
+    .mandi-trend-svg-wrap svg{display:block;width:100%;height:auto;min-width:280px}
+    .mandi-trend-empty{font-size:.78rem;color:var(--gray6);padding:1rem;text-align:center;background:var(--gray1);border-radius:8px}
+    .mandi-trend-point-label{font-size:9px;font-weight:700;fill:var(--gray7)}
+    .mandi-trend-date-label{font-size:8px;fill:var(--gray6)}
 
     /* ═══ GOOGLE MAP DASHBOARD ═══ */
     .gmap-dashboard{
@@ -1915,6 +1982,8 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSch
    LIVE WEATHER — Open-Meteo (free, no API key)
 ══════════════════════════════════════ */
 const WX_LAT = 33.9309, WX_LON = 75.1075; // Tral, Pulwama
+let wxData = null;      // last-fetched Open-Meteo payload, kept around for day-click interactions
+let wxSelectedDay = 0;  // which of the 4 forecast days is currently shown in the hourly strip
 
 const WMO = {
   0:['☀️','Clear sky'],1:['🌤️','Mainly clear'],2:['⛅','Partly cloudy'],3:['☁️','Overcast'],
@@ -1926,17 +1995,75 @@ const WMO = {
   95:['⛈️','Thunderstorm'],96:['⛈️','Thunderstorm w/ hail'],99:['⛈️','Severe thunderstorm']
 };
 function wmoInfo(code){ return WMO[code] || ['🌡️','—']; }
+const rainBand = (p) => p >= 60 ? 'rain-high' : p >= 35 ? 'rain-mid' : 'rain-low';
+
+// Builds the hourly bar-chart strip for a given forecast day index (0 = Today ... 3 = 4th day).
+// Day 0 shows a rolling "next 24 hours from now" view; other days show that day's full 00:00–23:00.
+function renderWxHourly(dayIndex) {
+  if (!wxData) return;
+  wxSelectedDay = dayIndex;
+
+  const dayNames = ['Today','Tomorrow', ...wxData.daily.time.slice(2).map(d => new Date(d).toLocaleDateString('en-IN',{weekday:'short'}))];
+
+  // Highlight the active day card
+  document.querySelectorAll('.wx-day').forEach(el => {
+    el.classList.toggle('active', Number(el.dataset.dayIdx) === dayIndex);
+  });
+
+  let startIdx, hourCount, isRolling;
+  if (dayIndex === 0) {
+    const nowTs = new Date();
+    const nowHourIdx = wxData.hourly.time.findIndex(t => new Date(t).getTime() >= nowTs.setMinutes(0,0,0));
+    startIdx = nowHourIdx === -1 ? 0 : nowHourIdx;
+    hourCount = 24;
+    isRolling = true;
+  } else {
+    startIdx = dayIndex * 24;
+    hourCount = 24;
+    isRolling = false;
+  }
+
+  const hourlySlice = wxData.hourly.time.slice(startIdx, startIdx + hourCount);
+  const hourlyHtml = hourlySlice.map((t, i) => {
+    const idx = startIdx + i;
+    if (idx >= wxData.hourly.time.length) return '';
+    const [hIcon] = wmoInfo(wxData.hourly.weather_code[idx]);
+    const pct = wxData.hourly.precipitation_probability[idx];
+    const barHeightPct = Math.max(pct, 6); // keep a visible sliver even at 0%
+    const isNow = isRolling && i === 0;
+    const hourLabel = isNow ? 'Now' : new Date(t).toLocaleTimeString('en-IN', {hour:'numeric', hour12:true});
+    return `<div class="wx-hour ${isNow ? 'now' : ''}" title="${hourLabel}: ${pct}% rain chance, ${Math.round(wxData.hourly.temperature_2m[idx])}°C">
+      <div class="wx-hour-time">${hourLabel}</div>
+      <div class="wx-hour-icon">${hIcon}</div>
+      <div class="wx-hour-bar-wrap"><div class="wx-hour-bar ${rainBand(pct)}" style="height:${barHeightPct}%;animation-delay:${i * 18}ms"></div></div>
+      <div class="wx-hour-pct">${pct}%</div>
+      <div class="wx-hour-temp">${Math.round(wxData.hourly.temperature_2m[idx])}°</div>
+    </div>`;
+  }).join('');
+
+  const labelText = isRolling ? 'Next 24 Hours' : `${dayNames[dayIndex]}'s Hourly Forecast`;
+  const labelEl = document.getElementById('wx-hourly-label-text');
+  const stripEl = document.getElementById('wx-hourly');
+  if (labelEl) labelEl.textContent = `⏱️ ${labelText} — Rain Chance`;
+  if (stripEl) stripEl.innerHTML = hourlyHtml;
+
+  // Scroll the strip back to the start each time a new day is picked
+  const scrollEl = document.querySelector('.wx-hourly-scroll');
+  if (scrollEl) scrollEl.scrollLeft = 0;
+}
 
 async function loadWeather() {
   const card = document.getElementById('wx-card');
   try {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${WX_LAT}&longitude=${WX_LON}`
       + `&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation,weather_code`
+      + `&hourly=temperature_2m,precipitation_probability,weather_code`
       + `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max`
       + `&timezone=Asia%2FKolkata&forecast_days=4`;
     const res = await fetch(url);
     if (!res.ok) throw new Error('Weather API error');
     const data = await res.json();
+    wxData = data;
     const cur = data.current;
     const [icon, desc] = wmoInfo(cur.weather_code);
 
@@ -1952,7 +2079,7 @@ async function loadWeather() {
     const dayNames = ['Today','Tomorrow', ...data.daily.time.slice(2).map(d => new Date(d).toLocaleDateString('en-IN',{weekday:'short'}))];
     const forecastHtml = data.daily.time.map((d,i) => {
       const [dIcon] = wmoInfo(data.daily.weather_code[i]);
-      return `<div class="wx-day">
+      return `<div class="wx-day ${i === 0 ? 'active' : ''}" data-day-idx="${i}" onclick="renderWxHourly(${i})" role="button" tabindex="0" title="Click to see ${dayNames[i]}'s hourly forecast">
         <div class="wx-day-name">${dayNames[i]}</div>
         <div class="wx-day-icon">${dIcon}</div>
         <div class="wx-day-temp">${Math.round(data.daily.temperature_2m_max[i])}°/${Math.round(data.daily.temperature_2m_min[i])}°</div>
@@ -1976,9 +2103,13 @@ async function loadWeather() {
         </div>
       </div>
       <div class="wx-spray ${spray.cls}">${spray.label}</div>
+      <div class="wx-hourly-label"><span id="wx-hourly-label-text">⏱️ Next 24 Hours — Rain Chance</span> <span class="wx-hourly-hint">🟢 low · 🟡 moderate · 🔵 high</span></div>
+      <div class="wx-hourly-scroll"><div class="wx-hourly" id="wx-hourly"></div></div>
       <div class="wx-forecast">${forecastHtml}</div>
       <div class="wx-updated">Updated ${new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})} IST · Source: Open-Meteo</div>
     `;
+
+    renderWxHourly(0);
   } catch (err) {
     card.innerHTML = `<div class="wx-error">
       ⚠️ Live weather couldn't load here. If you're viewing this inside a chat preview,
@@ -2157,6 +2288,10 @@ document.getElementById('enquiry-form').addEventListener('submit', function (e) 
    GitHub Actions job — see fetch-mandi-prices.mjs). No API key is
    ever loaded in the browser.
 ══════════════════════════════════════ */
+let mandiHistoryDoc = null;   // full mandi-price-history.json, fetched once
+let mandiTrendDays = 30;      // 14 or 30 — shared toggle across all open charts
+let mandiOpenRow = null;      // which mandi row currently has its chart open
+
 async function loadMandiPrices() {
   const card = document.getElementById('mandi-card');
   try {
@@ -2166,6 +2301,14 @@ async function loadMandiPrices() {
     const mandis = data.mandis || {};
     const mandiNames = Object.keys(mandis).sort();
     if (!mandiNames.length) throw new Error('No mandi data available');
+
+    // History is optional — if it hasn't been created/populated yet, charts just show "not enough data" per row.
+    try {
+      const histRes = await fetch('./mandi-price-history.json', { cache: 'no-store' });
+      mandiHistoryDoc = histRes.ok ? await histRes.json() : { history: {} };
+    } catch {
+      mandiHistoryDoc = { history: {} };
+    }
 
     const rowsHtml = mandiNames.map(name => {
       const info = mandis[name];
@@ -2186,12 +2329,14 @@ async function loadMandiPrices() {
         </div>`;
       }).join('');
 
-      return `<div class="mandi-row">
+      const rowId = `mandi-trend-${mandiNames.indexOf(name)}`;
+      return `<div class="mandi-row" onclick="toggleMandiTrend('${name.replace(/'/g,"\\'")}', ${mandiNames.indexOf(name)})">
         <div class="mandi-row-top">
           <span class="mandi-name">${name}</span>
           <span class="mandi-district">${info.district || ''}</span>
         </div>
         <div class="mandi-varieties">${varietiesHtml}</div>
+        <div class="mandi-trend-panel" id="${rowId}"></div>
       </div>`;
     }).join('');
 
@@ -2202,12 +2347,14 @@ async function loadMandiPrices() {
     card.innerHTML = `
       <div class="mandi-head">
         <div class="mandi-head-title">📈 Modal Price (most common trading rate)</div>
-        <div class="mandi-head-sub">${mandiNames.length} mandis tracked</div>
+        <div class="mandi-head-sub">${mandiNames.length} mandis tracked · tap a mandi for its price trend</div>
       </div>
       <div class="mandi-list">${rowsHtml}</div>
       <div class="mandi-caveat">ℹ️ Prices follow Agmarknet's official government grading categories (e.g. "Delicious", "Condition", "American"), not orchard/trade variety names — so you won't see Gala, SS2, KD, etc. listed separately. Ask us directly on WhatsApp for trade-variety-specific guidance.</div>
       <div class="mandi-updated">Updated ${updatedDate} · Source: ${data.source || 'Agmarknet, Govt. of India'}</div>
     `;
+
+    window._mandiNames = mandiNames; // used by toggleMandiTrend to re-render on day-range toggle
   } catch (err) {
     card.innerHTML = `<div class="mandi-error">
       ⚠️ Mandi prices couldn't load right now. If you're viewing this inside a chat preview,
@@ -2215,6 +2362,129 @@ async function loadMandiPrices() {
       <button onclick="loadMandiPrices()" style="margin-top:.6rem;background:var(--g8);color:#fff;border:none;border-radius:8px;padding:.5rem 1.1rem;font-weight:700;font-size:.83rem;cursor:pointer">↻ Retry</button>
     </div>`;
   }
+}
+
+// Expand/collapse a mandi row's trend chart. Only one panel is kept open at a time.
+function toggleMandiTrend(marketName, idx) {
+  const panel = document.getElementById(`mandi-trend-${idx}`);
+  if (!panel) return;
+
+  const isOpen = panel.classList.contains('open');
+  document.querySelectorAll('.mandi-trend-panel.open').forEach(p => p.classList.remove('open'));
+
+  if (isOpen) { mandiOpenRow = null; return; }
+
+  mandiOpenRow = { marketName, idx };
+  panel.classList.add('open');
+  renderMandiTrendPanel(panel, marketName);
+}
+
+function setMandiTrendDays(days) {
+  mandiTrendDays = days;
+  if (mandiOpenRow) {
+    const panel = document.getElementById(`mandi-trend-${mandiOpenRow.idx}`);
+    if (panel) renderMandiTrendPanel(panel, mandiOpenRow.marketName);
+  }
+}
+
+function renderMandiTrendPanel(panel, marketName) {
+  const marketHistory = mandiHistoryDoc?.history?.[marketName] || {};
+  const varietyNames = Object.keys(marketHistory);
+
+  if (!varietyNames.length) {
+    panel.innerHTML = `
+      <div class="mandi-trend-head">
+        <div class="mandi-trend-title">📈 ${marketName} — Price Trend</div>
+      </div>
+      <div class="mandi-trend-empty">Not enough history yet — the daily price tracker just started. Check back in a few days for a trend chart here.</div>
+    `;
+    return;
+  }
+
+  // Use the first variety recorded for this market (usually the only/primary one)
+  const vName = varietyNames[0];
+  const fullSeries = marketHistory[vName] || [];
+  const series = fullSeries.slice(-mandiTrendDays);
+
+  if (series.length < 2) {
+    panel.innerHTML = `
+      <div class="mandi-trend-head">
+        <div class="mandi-trend-title">📈 ${marketName} · ${vName} — Price Trend</div>
+      </div>
+      <div class="mandi-trend-empty">Only ${series.length} day${series.length === 1 ? '' : 's'} of history so far — the chart will fill in as daily prices are tracked.</div>
+    `;
+    return;
+  }
+
+  panel.innerHTML = `
+    <div class="mandi-trend-head">
+      <div class="mandi-trend-title">📈 ${marketName} · ${vName} — ₹/kg Trend</div>
+      <div class="mandi-trend-toggle" onclick="event.stopPropagation()">
+        <button class="${mandiTrendDays === 14 ? 'active' : ''}" onclick="setMandiTrendDays(14)">14d</button>
+        <button class="${mandiTrendDays === 30 ? 'active' : ''}" onclick="setMandiTrendDays(30)">30d</button>
+      </div>
+    </div>
+    <div class="mandi-trend-svg-wrap">${buildMandiTrendSvg(series)}</div>
+  `;
+}
+
+function buildMandiTrendSvg(series) {
+  const W = Math.max(series.length * 34, 280);
+  const H = 130;
+  const padL = 34, padR = 12, padT = 14, padB = 22;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+
+  const values = series.map(d => d.modal);
+  const minV = Math.min(...values);
+  const maxV = Math.max(...values);
+  const range = maxV - minV || 1;
+
+  const x = (i) => padL + (i / (series.length - 1)) * plotW;
+  const y = (v) => padT + plotH - ((v - minV) / range) * plotH;
+
+  const linePoints = series.map((d, i) => `${x(i)},${y(d.modal)}`).join(' ');
+  const areaPoints = `${padL},${padT + plotH} ${linePoints} ${padL + plotW},${padT + plotH}`;
+
+  const trendUp = values[values.length - 1] >= values[0];
+  const strokeColor = trendUp ? '#16a34a' : '#dc2626';
+  const fillId = `mandiTrendFill${Math.random().toString(36).slice(2, 8)}`;
+
+  const dots = series.map((d, i) => {
+    const isEnd = i === 0 || i === series.length - 1;
+    return `<circle cx="${x(i)}" cy="${y(d.modal)}" r="${isEnd ? 3.2 : 2}" fill="${strokeColor}" stroke="#fff" stroke-width="1"/>
+      ${isEnd ? `<text class="mandi-trend-point-label" x="${x(i)}" y="${y(d.modal) - 8}" text-anchor="${i === 0 ? 'start' : 'end'}">₹${d.modal}</text>` : ''}`;
+  }).join('');
+
+  // Date labels: first, middle, last
+  const labelIdxs = [0, Math.floor((series.length - 1) / 2), series.length - 1];
+  const dateLabels = [...new Set(labelIdxs)].map(i => {
+    const d = new Date(series[i].date);
+    const label = d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+    return `<text class="mandi-trend-date-label" x="${x(i)}" y="${H - 6}" text-anchor="${i === 0 ? 'start' : i === series.length - 1 ? 'end' : 'middle'}">${label}</text>`;
+  }).join('');
+
+  // Horizontal gridlines at min/max
+  const gridMax = `<line x1="${padL}" y1="${padT}" x2="${padL + plotW}" y2="${padT}" stroke="var(--gray2)" stroke-dasharray="2,2"/>
+    <text class="mandi-trend-date-label" x="${padL - 4}" y="${padT + 3}" text-anchor="end">₹${Math.round(maxV)}</text>`;
+  const gridMin = `<line x1="${padL}" y1="${padT + plotH}" x2="${padL + plotW}" y2="${padT + plotH}" stroke="var(--gray2)" stroke-dasharray="2,2"/>
+    <text class="mandi-trend-date-label" x="${padL - 4}" y="${padT + plotH + 3}" text-anchor="end">₹${Math.round(minV)}</text>`;
+
+  return `
+    <svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="${fillId}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="${strokeColor}" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="${strokeColor}" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      ${gridMax}${gridMin}
+      <polygon points="${areaPoints}" fill="url(#${fillId})"/>
+      <polyline points="${linePoints}" fill="none" stroke="${strokeColor}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      ${dots}
+      ${dateLabels}
+    </svg>
+  `;
 }
 
 /* ══════════════════════════════════════
