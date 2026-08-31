@@ -1,49 +1,21 @@
 {
-  "updated": "2026-08-29T09:43:32.638Z",
+  "updated": "2026-08-31T09:20:04.044Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 30,
-          "max": 100,
-          "modal": 65,
-          "prevModal": 65
-        }
-      }
-    },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
-      "varieties": {
-        "Gala Mast": {
-          "min": 100,
-          "max": 110,
-          "modal": 105,
-          "prevModal": null
-        },
-        "Hdp Gala Group": {
-          "min": 100,
-          "max": 110,
-          "modal": 105,
-          "prevModal": null
-        }
-      }
-    },
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
-        "Other": {
-          "min": 70,
-          "max": 70,
-          "modal": 70,
-          "prevModal": 70
-        },
         "Delicious": {
           "min": 32,
           "max": 32,
           "modal": 32,
-          "prevModal": 30
+          "prevModal": 32
+        },
+        "Other": {
+          "min": 68,
+          "max": 68,
+          "modal": 68,
+          "prevModal": 70
         }
       }
     },
@@ -52,25 +24,25 @@
       "varieties": {
         "Delicious": {
           "min": 62.5,
-          "max": 81.25,
-          "modal": 71.88,
-          "prevModal": 68.75
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": 71.88
         },
         "Other": {
-          "min": 140,
-          "max": 160,
-          "modal": 150,
-          "prevModal": 140
+          "min": 73.33,
+          "max": 80,
+          "modal": 76.67,
+          "prevModal": 150
         }
       }
     },
     "Rajouri (Phaliana) (F&V)": {
       "district": "Rajouri",
       "varieties": {
-        "Delicious": {
-          "min": 80,
-          "max": 80,
-          "modal": 80,
+        "Apple": {
+          "min": 55,
+          "max": 55,
+          "modal": 55,
           "prevModal": null
         }
       }
