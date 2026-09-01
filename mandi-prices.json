@@ -1,48 +1,48 @@
 {
-  "updated": "2026-08-31T09:20:04.044Z",
+  "updated": "2026-09-01T08:18:12.643Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
+        "Other": {
+          "min": 70,
+          "max": 70,
+          "modal": 70,
+          "prevModal": 68
+        },
         "Delicious": {
           "min": 32,
           "max": 32,
           "modal": 32,
           "prevModal": 32
-        },
-        "Other": {
-          "min": 68,
-          "max": 68,
-          "modal": 68,
-          "prevModal": 70
         }
       }
     },
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
-        "Delicious": {
+        "Kullu Delicious": {
           "min": 62.5,
           "max": 87.5,
           "modal": 75,
-          "prevModal": 71.88
+          "prevModal": null
         },
         "Other": {
-          "min": 73.33,
-          "max": 80,
+          "min": 66.67,
+          "max": 86.67,
           "modal": 76.67,
-          "prevModal": 150
+          "prevModal": 76.67
         }
       }
     },
-    "Rajouri (Phaliana) (F&V)": {
-      "district": "Rajouri",
+    "Parimpore Srinagar (F&V)": {
+      "district": "Srinagar",
       "varieties": {
-        "Apple": {
-          "min": 55,
-          "max": 55,
-          "modal": 55,
+        "Gala Mast": {
+          "min": 90,
+          "max": 120,
+          "modal": 110,
           "prevModal": null
         }
       }
