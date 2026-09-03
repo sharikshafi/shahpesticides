@@ -1,21 +1,21 @@
 {
-  "updated": "2026-09-02T07:38:16.196Z",
+  "updated": "2026-09-03T07:47:26.776Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
         "Delicious": {
-          "min": 62.5,
-          "max": 87.5,
-          "modal": 75,
+          "min": 32,
+          "max": 32,
+          "modal": 32,
           "prevModal": null
         },
         "Other": {
-          "min": 66.67,
-          "max": 80,
-          "modal": 73.33,
-          "prevModal": 76.67
+          "min": 68,
+          "max": 68,
+          "modal": 68,
+          "prevModal": null
         }
       }
     },
@@ -23,9 +23,20 @@
       "district": "Kathua",
       "varieties": {
         "Delicious": {
-          "min": 30,
+          "min": 40,
           "max": 120,
-          "modal": 75,
+          "modal": 80,
+          "prevModal": 75
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
+        "Delicious": {
+          "min": 43.75,
+          "max": 46.88,
+          "modal": 46.88,
           "prevModal": null
         }
       }
