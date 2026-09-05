@@ -1,7 +1,18 @@
 {
-  "updated": "2026-09-03T07:47:26.776Z",
+  "updated": "2026-09-05T07:25:02.514Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Kullu Delicious": {
+          "min": 62.5,
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": null
+        }
+      }
+    },
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
@@ -9,24 +20,13 @@
           "min": 32,
           "max": 32,
           "modal": 32,
-          "prevModal": null
+          "prevModal": 32
         },
         "Other": {
-          "min": 68,
-          "max": 68,
-          "modal": 68,
-          "prevModal": null
-        }
-      }
-    },
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
-        "Delicious": {
-          "min": 40,
-          "max": 120,
-          "modal": 80,
-          "prevModal": 75
+          "min": 67,
+          "max": 67,
+          "modal": 67,
+          "prevModal": 68
         }
       }
     },
@@ -34,9 +34,20 @@
       "district": "Kupwara",
       "varieties": {
         "Delicious": {
-          "min": 43.75,
-          "max": 46.88,
-          "modal": 46.88,
+          "min": 46.88,
+          "max": 53.13,
+          "modal": 50,
+          "prevModal": 46.88
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Apple": {
+          "min": 50,
+          "max": 50,
+          "modal": 50,
           "prevModal": null
         }
       }
