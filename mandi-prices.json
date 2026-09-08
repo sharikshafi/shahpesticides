@@ -1,21 +1,54 @@
 {
-  "updated": "2026-09-07T07:56:10.684Z",
+  "updated": "2026-09-08T07:49:42.038Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "APMC/MAC Shopian": {
+      "district": "Shopian",
+      "varieties": {
+        "Kullu Delicious": {
+          "min": 37.5,
+          "max": 50,
+          "modal": 43.75,
+          "prevModal": 43.75
+        }
+      }
+    },
+    "Kathua (F&V)": {
+      "district": "Kathua",
+      "varieties": {
+        "Delicious": {
+          "min": 30,
+          "max": 100,
+          "modal": 65,
+          "prevModal": null
+        }
+      }
+    },
     "Sopore (Nowpora) (F&V)": {
       "district": "Baramulla",
       "varieties": {
+        "Kullu Delicious": {
+          "min": 70,
+          "max": 70,
+          "modal": 70,
+          "prevModal": null
+        },
         "Other": {
           "min": 65,
           "max": 65,
           "modal": 65,
-          "prevModal": 67
-        },
+          "prevModal": 65
+        }
+      }
+    },
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
+      "varieties": {
         "Delicious": {
-          "min": 32,
-          "max": 32,
-          "modal": 32,
-          "prevModal": 32
+          "min": 62.5,
+          "max": 68.75,
+          "modal": 65.63,
+          "prevModal": null
         }
       }
     },
@@ -26,28 +59,17 @@
           "min": 87.5,
           "max": 100,
           "modal": 93.75,
-          "prevModal": null
+          "prevModal": 93.75
         }
       }
     },
     "Rajouri (Phaliana) (F&V)": {
       "district": "Rajouri",
       "varieties": {
-        "Apple": {
+        "Delicious": {
           "min": 80,
           "max": 80,
           "modal": 80,
-          "prevModal": 50
-        }
-      }
-    },
-    "APMC/MAC Shopian": {
-      "district": "Shopian",
-      "varieties": {
-        "Kullu Delicious": {
-          "min": 37.5,
-          "max": 50,
-          "modal": 43.75,
           "prevModal": null
         }
       }
