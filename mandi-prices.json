@@ -1,26 +1,48 @@
 {
-  "updated": "2026-09-09T07:52:27.109Z",
+  "updated": "2026-09-10T07:52:14.670Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
+    "MAC F&V Market Narwal Jammu": {
+      "district": "Jammu",
       "varieties": {
-        "Delicious": {
-          "min": 87.5,
-          "max": 100,
-          "modal": 93.75,
-          "prevModal": 93.75
+        "Apple": {
+          "min": 28,
+          "max": 112,
+          "modal": 70,
+          "prevModal": null
         }
       }
     },
-    "Kathua (F&V)": {
-      "district": "Kathua",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
-        "Delicious": {
-          "min": 50,
-          "max": 100,
-          "modal": 75,
-          "prevModal": 65
+        "Kullu Delicious": {
+          "min": 64,
+          "max": 64,
+          "modal": 64,
+          "prevModal": null
+        }
+      }
+    },
+    "APMC/MAC Shopian": {
+      "district": "Shopian",
+      "varieties": {
+        "Kullu Delicious": {
+          "min": 25,
+          "max": 37.5,
+          "modal": 31.25,
+          "prevModal": null
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Apple": {
+          "min": 60,
+          "max": 60,
+          "modal": 60,
+          "prevModal": null
         }
       }
     }
