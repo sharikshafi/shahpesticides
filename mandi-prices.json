@@ -1,25 +1,14 @@
 {
-  "updated": "2026-09-11T07:47:52.659Z",
+  "updated": "2026-09-12T07:41:12.978Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
+    "Handwara Kupwara (F&V)": {
+      "district": "Kupwara",
       "varieties": {
-        "Kullu Delicious": {
-          "min": 64,
-          "max": 64,
-          "modal": 64,
-          "prevModal": 64
-        }
-      }
-    },
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
-      "varieties": {
-        "Apple": {
-          "min": 70,
-          "max": 70,
-          "modal": 70,
+        "Delicious": {
+          "min": 59.38,
+          "max": 68.75,
+          "modal": 65.63,
           "prevModal": null
         }
       }
@@ -29,9 +18,20 @@
       "varieties": {
         "Apple": {
           "min": 28,
-          "max": 111,
-          "modal": 69.5,
-          "prevModal": 70
+          "max": 112,
+          "modal": 70,
+          "prevModal": 69.5
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Delicious": {
+          "min": 70,
+          "max": 70,
+          "modal": 70,
+          "prevModal": null
         }
       }
     },
@@ -39,10 +39,10 @@
       "district": "Kathua",
       "varieties": {
         "Delicious": {
-          "min": 50,
-          "max": 100,
-          "modal": 75,
-          "prevModal": null
+          "min": 40,
+          "max": 120,
+          "modal": 80,
+          "prevModal": 75
         }
       }
     }
