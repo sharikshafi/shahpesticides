@@ -1,26 +1,38 @@
 {
-  "updated": "2026-09-16T08:16:56.278Z",
+  "updated": "2026-09-17T08:23:06.586Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
-        "Apple": {
-          "min": 70,
-          "max": 70,
-          "modal": 70,
-          "prevModal": 70
+        "Kullu Delicious": {
+          "min": 64,
+          "max": 64,
+          "modal": 64,
+          "prevModal": null
+        },
+        "American": {
+          "min": 50,
+          "max": 50,
+          "modal": 50,
+          "prevModal": null
         }
       }
     },
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
       "varieties": {
-        "Apple": {
-          "min": 28,
-          "max": 110,
-          "modal": 69,
-          "prevModal": 38
+        "Golden": {
+          "min": 70,
+          "max": 90,
+          "modal": 80,
+          "prevModal": null
+        },
+        "Kullu Delicious": {
+          "min": 62.5,
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": null
         }
       }
     },
@@ -28,27 +40,21 @@
       "district": "Kathua",
       "varieties": {
         "Delicious": {
-          "min": 50,
+          "min": 30,
           "max": 100,
-          "modal": 75,
-          "prevModal": 85
+          "modal": 65,
+          "prevModal": 75
         }
       }
     },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
       "varieties": {
-        "Delicious": {
-          "min": 50,
-          "max": 75,
-          "modal": 62.5,
-          "prevModal": null
-        },
-        "American": {
-          "min": 62.5,
-          "max": 75,
-          "modal": 68.75,
-          "prevModal": null
+        "Apple": {
+          "min": 80,
+          "max": 80,
+          "modal": 80,
+          "prevModal": 70
         }
       }
     }
