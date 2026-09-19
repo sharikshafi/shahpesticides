@@ -1,32 +1,21 @@
 {
-  "updated": "2026-09-18T07:58:19.413Z",
+  "updated": "2026-09-19T07:48:45.437Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "MAC F&V Market Narwal Jammu": {
-      "district": "Jammu",
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
       "varieties": {
-        "Apple": {
-          "min": 28,
-          "max": 100,
-          "modal": 64,
-          "prevModal": null
-        }
-      }
-    },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
-      "varieties": {
-        "American": {
-          "min": 51,
-          "max": 51,
-          "modal": 51,
+        "Delicious": {
+          "min": 70,
+          "max": 90,
+          "modal": 80,
           "prevModal": 50
         },
         "Kullu Delicious": {
-          "min": 65,
-          "max": 65,
-          "modal": 65,
-          "prevModal": 64
+          "min": 62.5,
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": 75
         }
       }
     },
@@ -34,27 +23,10 @@
       "district": "Udhampur",
       "varieties": {
         "Apple": {
-          "min": 80,
-          "max": 80,
-          "modal": 80,
+          "min": 70,
+          "max": 70,
+          "modal": 70,
           "prevModal": 80
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Delicious": {
-          "min": 43.75,
-          "max": 56.25,
-          "modal": 50,
-          "prevModal": null
-        },
-        "Kullu Delicious": {
-          "min": 62.5,
-          "max": 87.5,
-          "modal": 75,
-          "prevModal": 75
         }
       }
     },
