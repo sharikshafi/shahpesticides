@@ -1,32 +1,21 @@
 {
-  "updated": "2026-09-19T07:48:45.437Z",
+  "updated": "2026-09-21T08:34:55.215Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
     "Market Administrative Committee Zazna": {
       "district": "Ganderbal",
       "varieties": {
-        "Delicious": {
+        "Kullu Delicious": {
+          "min": 62.5,
+          "max": 93.75,
+          "modal": 81.25,
+          "prevModal": 75
+        },
+        "Golden": {
           "min": 70,
           "max": 90,
           "modal": 80,
-          "prevModal": 50
-        },
-        "Kullu Delicious": {
-          "min": 62.5,
-          "max": 87.5,
-          "modal": 75,
-          "prevModal": 75
-        }
-      }
-    },
-    "Fruit and Vegetable Market Udhampur": {
-      "district": "Udhampur",
-      "varieties": {
-        "Apple": {
-          "min": 70,
-          "max": 70,
-          "modal": 70,
-          "prevModal": 80
+          "prevModal": null
         }
       }
     },
@@ -38,6 +27,17 @@
           "max": 100,
           "modal": 65,
           "prevModal": 65
+        }
+      }
+    },
+    "Rajouri (Phaliana) (F&V)": {
+      "district": "Rajouri",
+      "varieties": {
+        "Apple": {
+          "min": 65,
+          "max": 65,
+          "modal": 65,
+          "prevModal": null
         }
       }
     }
