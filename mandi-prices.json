@@ -1,7 +1,52 @@
 {
-  "updated": "2026-09-22T08:14:47.937Z",
+  "updated": "2026-09-24T08:08:37.013Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
+      "varieties": {
+        "Delicious": {
+          "min": 70,
+          "max": 90,
+          "modal": 80,
+          "prevModal": 80
+        },
+        "Kullu Delicious": {
+          "min": 62.5,
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": 75
+        }
+      }
+    },
+    "Fruit and Vegetable Market Udhampur": {
+      "district": "Udhampur",
+      "varieties": {
+        "Apple": {
+          "min": 80,
+          "max": 80,
+          "modal": 80,
+          "prevModal": null
+        }
+      }
+    },
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
+      "varieties": {
+        "American": {
+          "min": 47,
+          "max": 47,
+          "modal": 47,
+          "prevModal": null
+        },
+        "Kullu Delicious": {
+          "min": 61,
+          "max": 61,
+          "modal": 61,
+          "prevModal": null
+        }
+      }
+    },
     "Kathua (F&V)": {
       "district": "Kathua",
       "varieties": {
@@ -10,51 +55,6 @@
           "max": 100,
           "modal": 65,
           "prevModal": 65
-        }
-      }
-    },
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
-      "varieties": {
-        "Delicious": {
-          "min": 70,
-          "max": 90,
-          "modal": 80,
-          "prevModal": null
-        },
-        "Kullu Delicious": {
-          "min": 62.5,
-          "max": 87.5,
-          "modal": 75,
-          "prevModal": 81.25
-        }
-      }
-    },
-    "Rajouri (Phaliana) (F&V)": {
-      "district": "Rajouri",
-      "varieties": {
-        "Apple": {
-          "min": 65,
-          "max": 65,
-          "modal": 65,
-          "prevModal": 65
-        }
-      }
-    },
-    "Handwara Kupwara (F&V)": {
-      "district": "Kupwara",
-      "varieties": {
-        "Delicious": {
-          "min": 50,
-          "max": 75,
-          "modal": 62.5,
-          "prevModal": null
-        },
-        "American": {
-          "min": 53.13,
-          "max": 68.75,
-          "modal": 62.5,
-          "prevModal": null
         }
       }
     }
