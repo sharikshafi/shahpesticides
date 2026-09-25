@@ -1,21 +1,38 @@
 {
-  "updated": "2026-09-24T08:08:37.013Z",
+  "updated": "2026-09-25T08:31:56.140Z",
   "source": "Agmarknet, Govt. of India (data.gov.in)",
   "mandis": {
-    "Market Administrative Committee Zazna": {
-      "district": "Ganderbal",
+    "Sopore (Nowpora) (F&V)": {
+      "district": "Baramulla",
       "varieties": {
-        "Delicious": {
-          "min": 70,
-          "max": 90,
-          "modal": 80,
-          "prevModal": 80
+        "American": {
+          "min": 48,
+          "max": 48,
+          "modal": 48,
+          "prevModal": 47
         },
         "Kullu Delicious": {
-          "min": 62.5,
-          "max": 87.5,
-          "modal": 75,
-          "prevModal": 75
+          "min": 62,
+          "max": 62,
+          "modal": 62,
+          "prevModal": 61
+        }
+      }
+    },
+    "Jablipora Anantnag (F&V)": {
+      "district": "Anantnag",
+      "varieties": {
+        "Delicious": {
+          "min": 41.5,
+          "max": 41.5,
+          "modal": 41.5,
+          "prevModal": null
+        },
+        "Kullu Delicious": {
+          "min": 72,
+          "max": 72,
+          "modal": 72,
+          "prevModal": null
         }
       }
     },
@@ -26,35 +43,24 @@
           "min": 80,
           "max": 80,
           "modal": 80,
-          "prevModal": null
+          "prevModal": 80
         }
       }
     },
-    "Sopore (Nowpora) (F&V)": {
-      "district": "Baramulla",
+    "Market Administrative Committee Zazna": {
+      "district": "Ganderbal",
       "varieties": {
-        "American": {
-          "min": 47,
-          "max": 47,
-          "modal": 47,
+        "Golden": {
+          "min": 70,
+          "max": 90,
+          "modal": 80,
           "prevModal": null
         },
-        "Kullu Delicious": {
-          "min": 61,
-          "max": 61,
-          "modal": 61,
-          "prevModal": null
-        }
-      }
-    },
-    "Kathua (F&V)": {
-      "district": "Kathua",
-      "varieties": {
         "Delicious": {
-          "min": 30,
-          "max": 100,
-          "modal": 65,
-          "prevModal": 65
+          "min": 62.5,
+          "max": 87.5,
+          "modal": 75,
+          "prevModal": 80
         }
       }
     }
